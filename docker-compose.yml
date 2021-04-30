@@ -1,0 +1,29 @@
+version: "3"
+services:
+    subgame-db:
+        image: mysql:5.7.25
+        container_name: subgame-db
+        hostname: subgame-db
+        environment:
+            - MYSQL_ROOT_PASSWORD=1q2w3e
+            - TZ=Asia/Taipei
+        command: mysqld --user=root --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --federated --sql_mode=""
+
+    subgame-backend:
+        image: subgame-network/backend:1.0.0
+        container_name: subgame-backend
+        hostname: subgame-backend
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        volumes: 
+            - ./backend:/var/www/html/microService
+        environment: 
+            - NodeRPC=wss://subgamenode.guanfantech.com
+        entrypoint: bash -c "./scripts/docker_entrypoint.sh"
+        depends_on:
+            - subgame-db
+
+networks:
+    default:
+        driver: bridge

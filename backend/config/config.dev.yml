@@ -1,0 +1,14 @@
+server:
+    host: "0.0.0.0"
+    port: "80"
+    mode: "RELEASE"
+db:
+    dialect: "mysql"
+    user: "root"
+    password: "1q2w3e"
+    host: "subgame-db"
+    port: 3306
+    database: "SubGameCenterService"
+    flag: "charset=utf8mb4&parseTime=True&loc=Local&collation=utf8mb4_unicode_ci"
+subgame:
+    rpc: "NodeRPC"
