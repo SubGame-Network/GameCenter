@@ -24,6 +24,32 @@ services:
         depends_on:
             - subgame-db
 
+    subgame-frontend:
+        image: subgame-network/frontend:1.0.0
+        container_name: subgame-frontend
+        hostname: subgame-frontend
+        build:
+            context: ./frontend
+            dockerfile: Dockerfile
+        volumes: 
+            - ./frontend:/var/www/html/microService
+        environment: 
+            - NodeRPC=wss://subgamenode.guanfantech.com
+        entrypoint: bash -c "./scripts/docker_entrypoint.sh"
+
+    subgame-nginx:
+        image: nginx:1.16.0
+        container_name: subgame-nginx
+        hostname: subgame-nginx
+        volumes: 
+            - ./nginx-default.conf:/etc/nginx/conf.d/default.conf
+            - ./frontend/build:/var/www/html/microService
+        ports: 
+            - 80:80
+        depends_on: 
+            - subgame-backend
+            - subgame-frontend
+
 networks:
     default:
         driver: bridge

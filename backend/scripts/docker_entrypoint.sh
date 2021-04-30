@@ -7,6 +7,8 @@ sed -i 's@NodeRPC@'${NodeRPC}'@' config/config.yml
 
 go run cmd/migrate/gorm/migration/main.go
 
-go build cmd/gin/main.go
+if [ ! -f ./main ]; then
+    go build cmd/gin/main.go
+fi
 
 ./main

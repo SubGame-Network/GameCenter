@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@polkadot/api-provider": ["@polkadot/api-provider/index.tsx"],
+      "hooks/*": ["hooks/*"],
+      "utils/*": ["utils/*"],
+      "config/*": ["config/*"],
+      "react-icon-guanfan": ["react-icon-guanfan"]
+    }
+  }
+}
