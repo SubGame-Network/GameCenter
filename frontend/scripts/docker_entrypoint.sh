@@ -2,7 +2,9 @@
 
 set -e
 
+echo "frontend install ..."
 npm i
+echo "frontend install finish."
 
 cp src/config/config.prod.json src/config/config.json
 sed -i 's@NodeRPC@'${NodeRPC}'@' src/config/config.json
