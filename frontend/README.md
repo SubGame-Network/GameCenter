@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Init
+
+- Copy `src/config/config.prod.json` to `src/config/config.json`
+- Change `"SubGameNode": "NodeRPC"` to SubGame RPC link, like: `"SubGameNode": "wss://subgamenode.guanfantech.com"`
+
 ## Available Scripts
 
 In the project directory, you can run:

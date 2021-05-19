@@ -1,4 +1,4 @@
 {
-  "SubGameNode": "wss://subgamenode.guanfantech.com",
+  "SubGameNode": "NodeRPC",
   "betNextFewBlock": 100
 }
